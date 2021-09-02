@@ -1,0 +1,1026 @@
+#user_dashboard{
+    .inner{
+        position: relative;
+        top: -25px;
+        .search_form{
+            background: $white;
+            border-radius: 6px;
+            box-shadow: -7px 1px 20px rgba(0,0,0,0.2);
+            @include mq('phone'){
+                box-shadow: none;
+                border-radius: 2px;
+            }
+
+            .dropdown{
+                width: 16%;
+                border-right: 1px solid $grey;
+                position: relative;
+                cursor: pointer;
+                @include mq('phone'){
+                    width: 100%;
+                    margin-bottom: 12px;
+                    border-right: none;
+                    box-shadow: -7px 1px 20px rgba(0,0,0,0.2);
+                }
+
+                .active_val{
+                    display: block;
+                    padding: 15px 18px;
+                    font-size: 15px;
+                    font-weight: $font_light;
+                    text-transform: capitalize;
+                }
+                .icon{
+                    position: absolute;
+                    top: 50%;
+                    right: 15px;
+                    @include transform(translateY(-50%));
+                    display: inline-block;
+
+                    svg{
+                        max-width: 10px;
+                        @include transition(100ms all linear);
+                    }
+                }
+
+                .dropdown_menu{
+                    position: absolute;
+                    top: 100%;
+                    width: 100%;
+                    background: $white;
+                    box-shadow: -7px 8px 20px rgba(0,0,0,0.2);
+                    border-bottom-left-radius: 4px;
+                    border-bottom-right-radius: 4px;
+                    opacity: 0;
+                    visibility: hidden;
+                    @include transition(100ms all linear);
+                    z-index: 5;
+
+                    span{
+                        font-weight: $font_light;
+                        padding: 12px 18px;
+                        font-size: 15px;
+                        display: block;
+                        cursor: pointer;
+                        text-transform: capitalize;
+                        &.active{
+                            color: $green;
+                            font-weight: $font_bold;
+                        }
+                        &:hover{
+                            background: $darkBg;
+                            color: $white;
+                        }
+                    }
+                }
+
+                &.active{
+                    .dropdown_menu{
+                        opacity: 1;
+                        visibility: visible;
+                    }
+                    .icon{
+                        svg{
+                            @include transform(rotate(180deg));
+                        }
+                    }
+                }
+            }
+
+            .form_wrap{
+                width: 84%;
+                @include mq('phone'){
+                    width: 100%;
+                }
+                .searchBar{
+                    padding-left: 15px;
+                    position: relative;
+                    @include mq('phone'){
+                        padding-left: 0;
+                    }
+                    .search_input{
+                        width: 100%;
+                        position: relative;
+                        @include mq('phone'){
+                            background: $white;
+                            border-radius: 6px;
+                            box-shadow: -7px 1px 20px rgba(0,0,0,0.2);
+                        }
+                        .clear_search_icon{
+                            position: absolute;
+                            top: 55%;
+                            @include transform(translateY(-50%));
+                            right: 200px;
+                            display: inline-block;
+                            cursor: pointer;
+                            @include mq('phone'){
+                                right: 10px;
+                            }
+                            svg{
+                                display: block;
+                                path{
+                                    fill: $green;
+                                }
+                            }
+    
+                            &.disabled{
+                                pointer-events: none;
+                                svg{
+                                    display: block;
+                                    path{
+                                        fill: #d3d3d3;
+                                    }
+                                }
+                            }
+                        }
+                        .search_icon{
+                            position: absolute;
+                            top: 55%;
+                            @include transform(translateY(-50%));
+                            left: 2px;
+                            @include mq('phone'){
+                                left: 12px;
+                            }
+                        }
+    
+                        input{
+                            outline: none;
+                            border: none;
+                            background: $white;
+                            width: 100%;
+                            border-radius: 6px;
+                            padding: 15px 32px;
+                            font-size: 14px;
+                            
+                            @include mq('lap-and-up'){
+                                padding-right: 250px;
+                            }
+
+                            @include mq('phone'){
+                                font-size: 14px;
+                                border-radius: 4px;
+                                padding: 15px 42px;
+                            }
+                        }
+                    }
+    
+                    .search_btn{
+                        width: 190px;
+                        cursor: pointer;
+                        outline: none;
+                        border: none;
+                        padding: 17px 20px;
+                        background: $green;
+                        color: $white;
+                        @include transition (100ms all linear);
+                        border-radius: 6px;
+                        position: absolute;
+                        right: -1px;
+                        top: -2px;
+
+                        @include mq('phone'){
+                            width: 50%;
+                            border: none;
+                            margin: 30px auto 0;
+                            position: relative;
+                            padding: 15px;
+                            font-size: 13px;
+                        }
+    
+                        &:hover{
+                            background: $hoverGreen;
+                            color: $white;
+                        }
+                    }
+                }
+            }
+        }
+
+        .result_div{
+            margin-top: 20px;
+
+            .export_wrapper{
+                .title{
+                    font-size: 14px;
+                    font-weight: $font_light;
+                    @include mq('phone'){
+                        font-size: 13px;
+                    }
+    
+                    span{
+                        background: $dropdown;
+                        padding: 2px 14px;
+                        border-radius: 40px;
+                        margin-left: 8px;
+                        text-align: center;
+                        width: 100px;
+    
+                        vertical-align: middle;
+                        display: -webkit-inline-box;
+                        -webkit-line-clamp: 1;
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+    
+                        @include mq('phone'){
+                            width: 105px;
+                            min-width: 105px;
+                            text-overflow: ellipsis;
+                            overflow: hidden;
+                        }
+    
+                        @media(max-width: 360px){
+                            width: 90px;
+                            min-width: 90px;
+                            margin-left: 2px;
+                        }
+                        @media(max-width: 320px){
+                            width: 78px;
+                            min-width: 78px;
+                        }
+    
+                        &.searched{
+                            display: inline-block;
+                            width: auto;
+                            min-width: 100px;
+                            max-width: 934px;
+                            text-overflow: ellipsis;
+                            overflow: hidden;
+                            @include mq('phone'){
+                                max-width: 30%;
+                            }
+                        }
+                        &.cat{
+                            text-transform: capitalize;
+                        }
+                    }
+                }
+                .export{
+                    span{
+                        cursor: pointer;
+                        svg{
+                            display: block;
+                        }
+                    }
+                }
+            }
+
+            .result_cards{
+                margin-top: 15px;
+
+                .card_inner{
+                    border-radius: 6px;
+                    // box-shadow: 0px 2px 12px rgba(0,0,0,0.15);
+                    margin-bottom: 30px;
+                    position: relative;
+                    border: 1px solid $paginationGreen;
+                    cursor: pointer;
+                    @include mq('tablet-and-up'){
+                        height: 132px;
+                    }
+
+                    .header{
+                        padding: 15px 26px 10px;
+                        padding-right: 52px;
+                        background-color: $lightGreen;
+                        line-height: 1;
+                        position: relative;
+                        .show_icon{
+                            cursor: pointer;
+                            display: inline-block;
+                            position: absolute;
+                            right: 20px;
+                            top: 15px;
+                            svg path{
+                                fill: #292D31;
+                            }
+                        }
+                    }
+                    .card_title{
+                        word-break: break-all;
+                        color: $green;
+                        font-size: 23px;
+                        font-weight: $font_regular;
+                        position: relative;
+                        width: 100%;
+                        display: -webkit-inline-box;
+                        -webkit-line-clamp: 1;
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        @include mq('phone'){
+                            font-size: 20px;
+                        }
+                    }
+
+                    .body{
+                        padding: 15px 26px 20px;
+
+                        .descr_wrap{
+                            height: 40px;
+                            line-height: 22px;
+                            width: 100%;
+                            display: -webkit-inline-box;
+                            -webkit-line-clamp: 2;
+                            -webkit-box-orient: vertical;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            p{
+                                display: inline-block;
+                            }
+                            .key{
+                                font-weight: $font_regular;
+                                text-transform: uppercase;
+                                margin: 0 7px;
+                                &:first-child{
+                                    margin-left: 0;
+                                }
+                            }
+                            .value{
+                                font-weight: $font_light;
+                                text-transform: capitalize;
+                            }
+                        }
+                    }
+                    .descr{
+                        padding: 20px 26px;
+                        margin-top: 10px;
+                        p{
+                            display: -webkit-inline-box;
+                            max-width: 100%;
+                            -webkit-line-clamp: 3;
+                            -webkit-box-orient: vertical;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            font-weight: $font_light;
+                            line-height: 20px;
+                            font-size: 15px;
+                        }
+                    }
+                }
+            }
+
+            .load_more{
+                text-align: center;
+                margin: 40px 0 50px;
+                position: relative;
+                button{
+                    max-height: 47px;
+                    padding: 15px 45px;
+                    border: 1px solid $darkBg;
+                    background: $white;
+                    border-radius: 5px;
+                    outline: none;
+                    cursor: pointer;
+                    width: 205px;
+                    @include transition(200ms all linear);
+
+                    span{
+                        display: inline-block;
+                    }
+                    .loader_icon{
+                        height: 32px;
+                        width: 100%;
+                        position: relative;
+                    }
+                }
+
+
+                #loader{
+                    position: absolute;
+                    background: none;
+                    height: auto;
+                    top: -9px;
+                    svg{
+                        max-width: 32px;
+                        height: auto;
+                    }
+                }
+            }
+            .no_results{
+                margin: 60px 0;
+            }
+            .initial_note_txt{
+                margin-top: 120px;
+                font-weight: 400;
+                font-size: 18px;
+            }
+        }
+    }
+
+    #search_results_sidebar{
+        opacity: 0;
+        visibility: hidden;
+        @include transition(100ms all linear);
+        .sidebar_wrapper{
+            .closePopup_icon{
+                display: block;
+                position: absolute;
+                left: -34px;
+                top: 0;
+                cursor: pointer;
+                z-index: 2;
+                @include mq('phone'){
+                    left: unset;
+                    top: 15px;
+                }
+                @include mq('tablet-and-up'){
+                    padding: 10px 10px 7px;
+                    background: $white;
+                    padding-right: 6px;
+                    border-top-left-radius : 4px;
+                    border-bottom-left-radius : 4px;
+                }
+                svg{
+                    display: block;
+                    path{
+                        fill: $green;
+                    }
+                }
+                @include mq('phone'){
+                    right: 24px;
+                }
+            }
+
+            .search_result_wrapper{
+                height: calc(100vh);
+                overflow-y: auto;
+            }
+
+            .sidebar{
+                height: 100%;
+                position: absolute;
+                background: $searchPopupBg;
+                right: 0;
+                width: 60%;
+                // max-width: 900px;
+                overflow: scroll;
+                @include mq('lap-and-up'){
+                    padding: 0 0 20px;
+                    overflow: visible;
+                    height: auto;
+                    min-height: 100%;
+                }
+                
+                @include mq('phone'){
+                    width: 100%;
+                    padding: 42px 0;
+                }
+    
+                .search_info_main{
+                    background: $searchPopupBg;
+                    &:first-child{
+                        margin-top: 0;
+                    }
+
+                    .info_descr{
+                        
+                        .info_header{
+                            background: $white;
+                            cursor: pointer;
+                            position: relative;
+                            padding: 0 30px;
+                            margin-bottom: 10px;
+                            .title{
+                                color: $green;
+                                font-size: 22px;
+                                font-weight: $font_regular;
+                                padding-right: 45px;
+                                line-height: 2;
+                                vertical-align: middle;
+                                display: -webkit-inline-box;
+                                -webkit-line-clamp: 1;
+                                -webkit-box-orient: vertical;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                word-break: break-all;
+                                @include mq('phone'){
+                                    font-size: 18px;
+                                }
+                            }
+
+
+                            .export_results{
+                                display: none;
+                                margin: 15px 0 25px;
+                                width: 180px;
+                                @include mq('tablet'){
+                                    width: 180px;
+                                }
+                                .fileupload_btn{
+                                    box-shadow: 0px 5px 15px 0px rgba(57, 188, 169, 0.4);
+                                    background: $green;
+                                    outline: none;
+                                    border: none;
+                                    border-radius: 5px;
+                                    padding: 15px 20px;
+                                    cursor: pointer;
+                                    @include transition(100ms all linear);
+                                    color: $white;
+                                    width: 100%;
+                                    text-align: center;
+                                    position: relative;
+                                    &:hover{
+                                        @include mq('lap-and-up'){
+                                            background: $hoverGreen;
+                                        }
+                                    }
+                
+                                    span{
+                                        display: inline-block;
+                                        vertical-align: middle;
+                                        font-weight: $font_regular;
+                    
+                                        &.text{
+                                            font-size: 14px;
+                                        }
+                                        &.icon{
+                                            margin-left: 12px;
+                                            svg path{
+                                                fill: $white;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .info_content{
+                            padding: 0 30px;
+                            margin-bottom: 20px;
+                            border-bottom: 1px solid $dropdown;
+                        }
+                        .table_title{
+                            color: #696969;
+                            font-size: 18px;
+                            margin: 12px 0;
+                            @include mq('phone'){
+                                font-size: 16px;
+                            }
+                            .cat{
+                                background: #d4d5d5;
+                                padding: 2px 14px;
+                                border-radius: 40px;
+                                margin-left: 8px;
+                                text-align: center;
+                                width: 100px;
+                                vertical-align: middle;
+                                font-size: 14px;
+                                text-transform: capitalize;
+                            }
+                            .icon{
+                                display: inline-block;
+                                vertical-align: middle;
+                                margin-left: 15px;
+                                margin-top: 5px;
+                                svg{
+                                    display: inline-block;
+                                }
+                            }
+                            .export_btn{
+                                display: inline-block;
+                                vertical-align: middle;
+                                margin-left: 15px;
+                                cursor: pointer;
+                                padding: 10px 20px;
+                                background-color: $green;
+                                color: $white;
+                                border-radius: 6px;
+                                margin-top: 0;
+                                position: relative;
+                                &.disable{
+                                    background-color: #d3d3d3;
+                                }
+                                .caret_icon{
+                                    margin-left: 40px;
+                                    display: inline-block;
+                                    vertical-align: middle;
+                                    svg{
+                                       display: inline-block; 
+                                       @include transition(100ms all linear);
+                                       path{
+                                           fill: $white;
+                                       }
+                                    }
+                                    &.rotate{
+                                        svg{
+                                            @include transform(rotate(180deg));
+                                        }
+                                    }
+                                }
+                                .export_dropdown{
+                                    position: absolute;
+                                    top: 100%;
+                                    left: 0;
+                                    width: 200px;
+                                    background: $white;
+                                    margin-top: 10px;
+                                    box-shadow: 0 0 8px rgba(0,0,0,0.30);
+                                    border-radius: 6px;
+                                    opacity: 0;
+                                    visibility: hidden;
+                                    &.show{
+                                        opacity: 1;
+                                        visibility: visible;
+                                    }
+                                    li{
+                                        color: $black;
+                                        padding: 12px 16px;
+                                        font-size: 15px;
+                                        border-bottom: 1px solid $dropdown;
+                                        &:hover{
+                                            background: $darkBg;
+                                            color: $white;
+                                        }
+                                        &:last-child{
+                                            border: none;
+                                        }
+                                    }
+                                }
+                                &.disable{
+                                    pointer-events: none;
+                                    svg rect{
+                                        fill: #d3d3d3;
+                                    }
+                                }
+                            }
+                        }
+
+                        .mainData_table{
+                            @include mq('tablet-and-up'){
+                                max-height: 370px;
+                                overflow: auto;
+                            }
+                            .loading_div{
+                                width: 100%;
+                                padding: 20px 0;
+                            }
+                            .row_item{
+                                padding: 10px;
+                                padding-left: 0;
+                                // margin-bottom: 15px;
+
+                                .row_inner{
+                                    background: #E8F4F3;
+                                    width: 100%;
+                                    padding: 10px;
+                                    @include align-content(space-between);
+                                    &.documents_row{
+                                        @include align-content(space-between)
+                                    }
+
+                                    &.accordion_row{
+                                        padding: 0;
+
+                                        .dropdown_content{
+                                            width: 100%;
+                                        }
+                                    }
+                                }
+                                .key_top_align{
+                                    margin-bottom: 12px;
+                                    margin-top: 5px;    
+                                }
+                                &.full_width{
+                                    width: 100%;
+                                }
+                                &.half_width{
+                                    width: 50%;
+                                    @include mq('phone'){
+                                        width: 100%;
+                                    }
+                                }
+                                &.one_third{
+                                    width: 33.33%;
+                                    @include mq('phone'){
+                                        width: 100%;
+                                    }
+                                }
+                                .cell_item{
+                                    // padding: 8px 0 12px;
+                                    width: 100%;
+                                    
+                                    &.key{
+                                        text-align: right;
+                                        color: $green;
+                                        margin-top: 10px;
+                                        font-size: 14px;
+                                    }
+
+                                    &.left_header_key{
+                                        text-align: left;
+                                        margin: 0;
+                                        cursor: pointer;
+                                        padding: 15px 10px;
+                                        position: relative;
+                                        .toggle_icon{
+                                            display: inline-block;
+                                            position: absolute;
+                                            right: 30px;
+                                            top: 50%;
+                                            @include transform(translateY(-50%));
+                                            svg{
+                                                @include transition(0.2s all linear);
+                                                display: block;
+                                                transform-origin: center;
+                                            }
+                                            &.up svg{
+                                                @include transition(0.2s all linear);
+                                                display: block;
+                                                transform-origin: center;
+                                                @include transform(rotate(180deg));
+                                            }
+                                        }
+                                    }
+
+                                    &.value{
+                                        min-height: 50px;
+                                        word-break: break-all;
+                                        // &.overflow{
+                                        //     text-overflow: ellipsis;
+                                        //     overflow: hidden;
+                                        // }
+                                    }
+
+                                    table{
+                                        width: 100%;
+                                        thead{
+                                            
+                                            text-align: left;
+                                            th{
+                                                // width: 50%;
+                                                padding-bottom: 8px;
+                                                &:first-child{
+                                                    width: 80%;
+                                                }
+                                                &:last-child{
+                                                    width: 20%;
+                                                }
+                                            }
+                                        }
+                                        tbody{
+                                            tr td{
+                                                padding: 2px 0;
+                                                vertical-align: top;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                &:last-child{
+                                    .cell_item.key, .cell_item.value {
+                                        // border-bottom: none;
+                                    }
+                                } 
+                            }
+                            &.companies{
+                                .row_item_company{
+                                    &:first-child{
+                                        width: 70%;
+                                    }
+                                    &:last-child{
+                                        width: 30%;
+                                    }
+                                }
+                            }
+
+                            .drug_data_row{
+                                padding-bottom: 12px;
+                                border-bottom: 1px solid $green;
+                                margin-bottom: 12px;
+                                &:last-child{
+                                    padding-bottom: 0;
+                                    border: none;
+                                    margin-bottom: 0;
+                                }
+
+                                &.pathway_data_row{
+                                    .drug_card:nth-child(4n){
+                                        padding-right: 0;
+                                    }
+                                }
+                                &.evidence_data_row{
+                                    .drug_card .drug_card_inner{
+                                        height: auto;
+                                    }
+                                }
+                            }
+
+                            .extra_data_row{
+                                padding: 6px;
+                                .drug_card{
+                                    padding-right: 10px;
+                                    @include mq('phone'){
+                                        padding-right: 0;
+                                        margin-bottom: 20px;
+                                    }
+                                    .drug_card_inner{
+                                        padding: 10px;
+                                        height: 100%;
+                                        @include flexbox;
+                                        @include align-content(space-between);
+                                        @include flex-wrap(wrap);
+                                        &.accordion_row{
+                                            padding: 0;
+                                        }
+                                        &.white_bg{
+                                            background: $white;
+                                        }
+                                        &.grey_bg{
+                                            background: $searchPopupBg;
+                                        }
+                                        .cell_item_inner{
+                                            width: 100%;
+                                            &.value{
+                                                min-height: 50px;
+                                                word-break: break-all;
+                                            }
+                                            &.accordion_content_value{
+                                                padding: 0 10px;
+                                            }
+                                        }
+                                    }
+                                    
+                                    &.width_50{
+                                        width: 50%;
+                                        @include mq('phone'){
+                                            width: 100%;
+                                        }
+                                    }
+                                    &.width_20{
+                                        width: 20%;
+                                        @include mq('phone'){
+                                            width: 100%;
+                                        }
+                                    }
+                                    &.width_80{
+                                        width: 80%;
+                                        @include mq('phone'){
+                                            width: 100%;
+                                        }
+                                    }
+                                    &.width_100{
+                                        width: 100%;
+                                        padding-right: 0;
+                                    }
+                                    &.width_33{
+                                        width: 33.33%;
+                                        @include mq('phone'){
+                                            width: 100%;
+                                        }
+                                    }
+                                    &.width_25{
+                                        width: 25%;
+                                        @include mq('phone'){
+                                            width: 100%;
+                                        }
+                                    }
+                                    &.no_padding{
+                                        padding-right: 0;
+                                    }
+                                    
+                                    .trial_item_inner{
+                                        margin-bottom: 14px;
+                                    }
+                                    
+                                }
+                            }
+
+                            .margin_bottom{
+                                margin-bottom: 14px;
+                            }
+                            .reduce_height{
+                                min-height: 25px !important; 
+                            }
+                            .seperator{
+                                width: 100%;
+                                margin: 10px 0;
+                                background: $green;
+                                height: 1px;
+                                outline: none;
+                                border: none;
+                            }
+                            
+                            
+                        }
+                        
+                        .data_table{
+                            margin-top: 10px;
+                            .header{
+                                @include flex-wrap(nowrap);
+                                border-bottom: 1px solid $placeholder;
+                                p{
+                                    padding: 12px 15px;
+                                    cursor: pointer;
+                                    &:first-child{
+                                        padding-left: 0;
+                                        // color: $green;
+                                    }
+                                    &.active{
+                                        color: $green;   
+                                    }
+                                    
+                                }
+                            }
+                            .content{
+                                padding: 20px 0;
+                                min-height: 192px;
+                                .content_inner{
+                                    position: relative;
+                                }
+                                ul{
+                                    display: none;
+    
+                                    li{
+                                        margin-bottom: 10px;
+                                        color: $green;
+                                        cursor: pointer;
+                                        display: inline-block;
+                                        width: 33.33%;
+                                        font-size: 15px;
+                                        padding-right: 42px;
+
+                                        .truncate{
+                                            overflow: hidden;
+                                            text-overflow: ellipsis;
+                                            white-space: nowrap;
+                                            width: 100%;
+                                            display: inline-block;
+                                        }
+
+                                        @include mq('phone'){
+                                            width: 50%;
+                                            padding-right: 22px;
+                                        }
+                                        &.no_data{
+                                            color: $black;
+                                            display: block;
+                                            text-align: center;
+                                            width: 100%;
+                                        }
+
+                                        &.view_more{
+                                            margin-top: 22px;
+                                            color: $black;
+                                            display: block;
+                                            text-align: center;
+                                            width: 100%;   
+                                            font-weight: $font_light;
+                                            p{
+                                                display: inline-block;
+                                                vertical-align: middle;
+                                                position: relative;
+                                                &::after{
+                                                    content: '';
+                                                    position: absolute;
+                                                    top: 2px;
+                                                    right: -20px;
+                                                    width: 15px;
+                                                    height: 15px;
+                                                    background: url('../assets/svgs/Icon_view_more.svg') no-repeat;
+                                                    background-size: 100%;
+                                                    background-position: center;
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    &.active{
+                                        display: block;
+                                    }
+                                }
+                                
+                            }
+                            
+                        }
+                    }
+
+                    .toggle_icon{
+                        display: inline-block;
+                        position: absolute;
+                        right: 30px;
+                        top: 50%;
+                        @include transform(translateY(-50%));
+                        svg{
+                            @include transition(0.2s all linear);
+                            display: block;
+                            transform-origin: center;
+                        }
+                        &.up svg{
+                            @include transition(0.2s all linear);
+                            display: block;
+                            transform-origin: center;
+                            @include transform(rotate(180deg));
+                        }
+                    }
+                    
+                }
+            }
+        }
+        
+
+        &.show{
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+}

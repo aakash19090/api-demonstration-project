@@ -1,0 +1,122 @@
+header.header_desk{
+    background: $darkBg;
+    padding: 40px 0 70px;
+    .inner{
+        .header_wrap{
+            margin: 0 -5px;
+            .heading{
+                max-width: 80%;
+                display: inline-block;
+                font-size: 26px;
+                font-weight: 400;
+                line-height: 32px;
+                color: $white;
+                @include mq('phone-and-tablet'){
+                    font-size: 24px;
+                }
+                @media(max-width:320px){
+                    font-size: 21px;
+                }
+                @include mq('phone-and-tablet'){
+                    max-width: 100%;
+                }
+            }
+
+            .logo_div{
+                @include mq('phone'){
+                    margin-top: 22px;
+                }
+                img{
+                    display: inline-block;
+                    max-width: 200px;
+                }
+            }
+
+            .profile_wrapper{
+                @include mq('phone'){
+                    margin-top: 22px;
+                    @include justify-content(center);
+                }
+                .inner{
+                    position: relative;
+                    .profile_info{
+                        margin-right: 52px;
+                        @include mq('phone'){
+                            margin-right: 0;
+                        }
+                        .img{
+                            max-width: 42px;
+                            height: auto;
+                            cursor: pointer;
+                            img{
+                                border-radius: 50%;
+                                object-fit: cover;
+                                width: 42px;
+                                height: 42px;
+                            }
+                        }
+                        .text{
+                            margin-left: 22px;
+                            .welcome{
+                                opacity: 0.8;
+                                font-size: 16px;
+                                color: $white;
+                            }
+                            .name{
+                                margin-top: 3px;
+                                font-size: 16px;
+                                color: $green;
+                            }
+                        }
+                    }
+                    .dropdown{
+                        opacity: 0;
+                        visibility: hidden;
+                        background: $dropdown;
+                        border-radius: 6px;
+                        max-width: 150px;
+                        position: absolute;
+                        bottom: -65px;
+                        width: 143px;
+                        left: -49px;
+                        z-index: 5;
+                        cursor: pointer;
+                        @include transition(100ms all linear);
+
+                        &.active{
+                            opacity: 1;
+                            visibility: visible;
+                            box-shadow: 0px 8px 15px rgba(0,0,0,0.15);
+                            -webkit-box-shadow: 0px 8px 15px rgba(0,0,0,0.15);
+                        }
+
+                        &:hover{
+                            background: $grey;
+                            .caret_icon svg path{
+                                fill: $grey;
+                            }
+                        }
+                        .logout{
+                            padding: 14px 20px;
+                            font-weight: $font_light;
+                        }
+
+                        .caret_icon{
+                            display: inline-block;
+                            position: absolute;
+                            top: -8px;
+                            left: 50%;
+                            @include transform(translateX(-50%) rotate(180deg));
+
+                            svg{
+                                @include transition(100ms all linear)
+                            }
+                        }
+                    }
+                }
+            }
+            
+        }
+        
+    }
+}

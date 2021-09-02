@@ -1,0 +1,99 @@
+.form_wrapper{
+    background: $lightGreen;
+    padding: 27px 84px 36px;
+    border-radius: 6px;
+    max-width: 535px;
+    margin: 65px auto 100px;
+    position: relative;
+    @include mq('phone'){
+        max-width: 90%;
+        padding: 22px;
+    }
+}
+.login_form, .forgot_pwd_form, .reset_form{
+    form{
+        label{
+            display: block;
+            margin-bottom: 6px;
+        }
+        input{
+            background: $white;
+            padding: 17px 56px;
+            border-radius: 6px;
+            width: 100%;
+            font-size: 14px;
+            display: block;
+            outline: none;
+            border: none;
+        }
+    
+        .field_row{
+            margin-bottom: 27px;
+        }
+    
+        .input_div{
+            position: relative;
+            .input_icon{
+                position: absolute;
+                display: inline-block;
+                top: 55%;
+                left: 20px;
+                @include transform(translateY(-50%));
+                &.eye_icon{
+                    cursor: pointer;
+                    left: unset;
+                    right: 20px;
+                }
+            }
+        }
+    
+        .error_msg{
+            color: $red;
+            display: block;
+            font-size: 14px;
+            margin-top: 5px;
+            margin-left: 10px;
+        }
+    
+        .forgot_pwd{
+            margin-top: 30px;
+            a{
+                cursor: pointer;
+                font-size: 15px;
+                color: $black;
+            }
+        }
+    
+        .submit_div{
+            margin-top: 25px;
+            .submit_btn{
+                text-align: center;
+                display: block;
+                background: $green;
+                border-radius: 4px;
+                padding: 17px 20px;
+                width: 100%;
+                color: #ffffff;
+                outline: none;
+                border: none;
+                cursor: pointer;
+                @include transition(100ms all linear);
+                &:hover{
+                    background: $hoverGreen;
+                }
+    
+                span{
+                    display: inline-block;
+                    vertical-align: middle;
+                    svg{
+                        vertical-align: middle;
+                        display: inline-block;
+                    }
+                }
+                .icon{
+                    margin-left: 12px;
+                }
+            }
+        }
+    }
+}

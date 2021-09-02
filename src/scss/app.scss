@@ -1,0 +1,15 @@
+// GLobals
+@import './global/fonts.scss';
+@import './global/variables.scss';
+@import './global/mixin.scss';
+@import './global/grid.scss';
+@import './global/reset.scss';
+@import './global/common.scss';
+
+
+// Components
+@import './components/header.scss';
+@import './components/form.scss';
+@import './components/adminDashboard.scss';
+@import './components/userDashboard.scss';
+

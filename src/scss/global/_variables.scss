@@ -1,0 +1,101 @@
+// Site Width
+$desk_width: 1280px;
+$mob_width: 375px;
+
+// Fonts
+
+// @import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;700&display=swap');
+
+$font_family:  'Calibri', sans-serif;
+
+$body_font_desk: 16px;
+$body_font_xs: 15px;
+$font_light: 300;
+$font_regular: 400;
+$font_bold: 700;
+
+// Color Palatte
+
+$paginationGreen: #afe4dc;
+$lightGreen : #d7f2ee;
+$green : #39BCA9;
+$hoverGreen: #328478;
+$darkBg : #292D31;
+$white: #ffffff;
+$black: #000000;
+$grey: #aaabad;
+$red : #ff0000;
+$placeholder: #a9a9a9;
+$dropdown: #d4d5d5;
+$searchPopupBg: #F4F6F8;
+$red: #ee3f3f;
+
+/* MIXIN : MEDIA QUERIES
+ *    EX : @include mq( 'lap-and-up' ) { CODE }
+ * ------------------------------------------------------------------------- */
+$phone: "screen and (max-width: 767px)";
+$tablet: "screen and (min-width: 768px) and (max-width: 1024px)";
+$phone-and-tablet: "screen and (max-width: 1024px)";
+$tablet-and-up: "screen and (min-width: 768px)";
+$tablet-portrait: "screen and (min-width: 768px) and (max-width: 959px)";
+$tablet-landscape: "screen and (min-width: 960px) and (max-width: 1024px)";
+$lap: "screen and (min-width: 1025px) and (max-width: 1219px)";
+$lap-and-up: "screen and (min-width: 1025px)";
+$desk-and-up: "screen and (min-width: 1220px)";
+$lap-and-desk: "screen and (min-width: 1025px) and (max-width: 1679px)";
+$wide-and-up: "screen and (min-width: 1680px)";
+$retina: "(-webkit-min-device-pixel-ratio: 2),(min-resolution: 192dpi)";
+$iphone4: "screen and (max-width: 320px)";
+
+
+@mixin mq($alias) {
+    @if $alias == "phone" {
+        @media #{$phone} {
+            @content;
+        }
+    } @else if $alias == "tablet" {
+        @media #{$tablet} {
+            @content;
+        }
+    } @else if $alias == "phone-and-tablet" {
+        @media #{$phone-and-tablet} {
+            @content;
+        }
+    } @else if $alias == "tablet-and-up" {
+        @media #{$tablet-and-up} {
+            @content;
+        }
+    } @else if $alias == "tablet-portrait" {
+        @media #{$tablet-portrait} {
+            @content;
+        }
+    } @else if $alias == "tablet-landscape" {
+        @media #{$tablet-landscape} {
+            @content;
+        }
+    } @else if $alias == "lap" {
+        @media #{$lap} {
+            @content;
+        }
+    } @else if $alias == "lap-and-up" {
+        @media #{$lap-and-up} {
+            @content;
+        }
+    } @else if $alias == "desk-and-up" {
+        @media #{$desk-and-up} {
+            @content;
+        }
+    } @else if $alias == "lap-and-desk" {
+        @media #{$lap-and-desk} {
+            @content;
+        }
+    } @else if $alias == "wide-and-up" {
+        @media #{$wide-and-up} {
+            @content;
+        }
+    } @else if $alias == "retina" {
+        @media #{$retina} {
+            @content;
+        }
+    }
+}

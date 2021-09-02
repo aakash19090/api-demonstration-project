@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    // ? Adding to prevent blue highlighting on Tap in Mobile devices
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -moz-tap-highlight-color: rgba(0, 0, 0, 0);
+    -ms-tap-highlight-color: rgba(0, 0, 0, 0);
+    -o-tap-highlight-color: rgba(0, 0, 0, 0);
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+    font-family: $font_family;
+    font-weight: $font_regular;
+    font-size: $body_font_desk;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    // background: $green;
+    @include mq("phone") {
+        font-size: $body_font_xs;
+    }
+    // background: var(--dark_very_dark_blue);
+}
+
+img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $font_family;
+    font-weight: $font_regular;
+}
+
+ul{
+    list-style: none;
+    display: block;
+    margin: 0;
+}
+
+a {
+    outline: none;
+    text-decoration: none;
+    transition: all 200ms linear;
+    color: $green
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.text-center {
+    text-align: center !important;
+}
+.text-left {
+    text-align: left !important;
+}
+.text-right {
+    text-align: right !important;
+}
+.v_hide {
+    visibility: hidden !important;
+}
+.hide {
+    display: none !important;
+}
+
+.sm-hide {
+    @media (max-width: 1024px) {
+        display: none !important ;
+    }
+}
+.sm-show {
+    @media (min-width: 1025px) {
+        display: none !important;
+    }
+}
+.xs-hide {
+    @media (max-width: 767px) {
+        display: none !important;
+    }
+}
+.xs-show {
+    @media (min-width: 768px) {
+        display: none !important;
+    }
+}
+
+.xs-center {
+    @media (max-width: 767px) {
+        text-align: center !important;
+    }
+}
+.xs-left {
+    @media (max-width: 767px) {
+        text-align: left !important;
+    }
+}
+.xs-right {
+    @media (max-width: 767px) {
+        text-align: right !important;
+    }
+}
+.sm-center {
+    @media (max-width: 1024px) {
+        text-align: center !important;
+    }
+}
+.sm-left {
+    @media (max-width: 1024px) {
+        text-align: left !important;
+    }
+}
+.sm-right {
+    @media (max-width: 1024px) {
+        text-align: right !important;
+    }
+}
+
+.overflow_hidden {
+    overflow: hidden !important;
+}
